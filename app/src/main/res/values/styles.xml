@@ -1,0 +1,67 @@
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
+  <style name="HeaderText" parent="Theme.AppCompat.Light">
+    <item name="android:textColor">@color/textViewColor</item>
+    <item name="android:textSize">32sp</item>
+    <item name="android:fontFamily">@font/vag_rounded_std_bold</item>
+  </style>
+
+  <style name="QuestionText" parent="Theme.AppCompat.Light">
+    <item name="android:textColor">@color/textViewColor</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:fontFamily">@font/designosaur_regular</item>
+  </style>
+
+  <style name="ControlButton" parent="Base.TextAppearance.AppCompat.Widget.Button">
+    <item name="android:textColor">@color/textViewColor</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:fontFamily">@font/designosaur_regular</item>
+  </style>
+
+  <style name="RadioButton" parent="Theme.AppCompat.Light">
+    <item name="android:textSize">20sp</item>
+
+    <!-- color of radio button (circle only) -->
+    <item name="buttonTint">@color/radioButtonColor</item>
+
+    <item name="android:textColor">@color/radioButtonTextColor</item>
+  </style>
+
+  <style name="CheckBox" parent="Theme.AppCompat.Light">
+    <item name="android:textSize">20sp</item>
+
+    <!-- color of check box (square only) -->
+    <item name="buttonTint">@color/radioButtonColor</item>
+
+    <item name="android:textColor">@color/radioButtonTextColor</item>
+  </style>
+
+  <style name="ResultsHeaderText" parent="Theme.AppCompat.Light">
+    <item name="android:textColor">@color/textViewColor</item>
+    <item name="android:textSize">32sp</item>
+    <item name="android:padding">16dp</item>
+    <item name="android:fontFamily">@font/vag_rounded_std_bold</item>
+  </style>
+
+  <style name="ResultsLabelText" parent="Theme.AppCompat.Light">
+    <item name="android:textColor">@color/textViewColor</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:padding">16dp</item>
+    <item name="android:fontFamily">@font/designosaur_regular</item>
+  </style>
+
+  <style name="ResultsIncorrectLabelText" parent="Theme.AppCompat.Light">
+    <item name="android:textColor">@color/resultsIncorrectTextColor</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:padding">16dp</item>
+    <item name="android:fontFamily">@font/designosaur_regular</item>
+  </style>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="results_header">Results</string>
+  <string name="results_score">Score: %1$d out of %2$d</string>
+  <string name="results_all_right">Now that\'s how you\'re supposed to ace a quiz! From now on, that\'s how you ace a quiz!!</string>
+  <string name="results_most_right">Nice going! That\'s what\'s up!</string>
+  <string name="results_half_right">Good job. I encourage you to have another go!</string>
+  <string name="results_some_right">Please try again! Let\'s try to get a better score!</string>
+  <string name="results_none_right">Please try again. I know you can do it!</string>
+  <string name="results_incorrect_questions">Incorrect Questions:\n%1$s</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#303F9F</color>
+
+  <!-- color of taxt views -->
+  <color name="textViewColor">#003F9F</color>
+
+  <!-- color of radio button (body only) -->
+  <color name="radioButtonColor">@color/textViewColor</color>
+
+  <!-- color of radio button (text only) -->
+  <color name="radioButtonTextColor">@color/textViewColor</color>
+
+  <color name="resultsIncorrectTextColor">#c000c0</color>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <RelativeLayout
+    android:id="@+id/results_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="centerCrop"
+      android:src="@drawable/animals_background" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_centerInParent="true">
+
+      <TextView
+        android:id="@+id/txt_results_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/results_header"
+        android:textAlignment="center"
+        style="@style/ResultsHeaderText" />
+
+      <TextView
+        android:id="@+id/txt_results_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/results_score"
+        android:textAlignment="center"
+        style="@style/ResultsLabelText"
+        />
+
+      <TextView
+        android:id="@+id/txt_results_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/results_all_right"
+        android:textAlignment="center"
+        style="@style/ResultsLabelText"
+        />
+
+      <TextView
+        android:id="@+id/txt_results_incorrect_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/results_incorrect_questions"
+        android:textAlignment="center"
+        android:maxLines="2"
+        style="@style/ResultsIncorrectLabelText" />
+
+      <Button
+        android:id="@+id/btn_results_play_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onBtnPlayAgain"
+        android:text="@string/play_again"
+        style="@style/ControlButton"/>
+    </LinearLayout>
+
+  </RelativeLayout>
+
+</layout>

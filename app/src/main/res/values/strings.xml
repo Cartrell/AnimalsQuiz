@@ -1,0 +1,192 @@
+<resources>
+  <!-- general app strings -->
+  <string name="app_name">Animals Quiz</string>
+  <string name="header">Animals Quiz</string>
+  <string name="edit_text_hint">Enter your response here.</string>
+  <string name="questionNumberFormat">%1$d).\u0020</string>
+  <string name="grading_message">Score: %1$d out of %2$d</string>
+
+  <!-- button labels -->
+  <string name="grading">Grading</string>
+  <string name="submit">Submit</string>
+  <string name="play_again">Play Again</string>
+
+  <!-- font files -->
+  <string name="fontfile_designosaur_regular">designosaur_regular.otf</string>
+
+  <!-- question and choice strings -->
+  <string name="question_arthropod">Which of the following animals is an arthropod?</string>
+  <string name="choice_arthropod_spider">Spider</string>
+  <string name="choice_arthropod_eagle">Eagle</string>
+  <string name="choice_arthropod_monkey">Monkey</string>
+  <string name="choice_arthropod_amphibian">Amphibian</string>
+
+  <string name="question_cold">Please select the animals that are cold-blooded. Select all that apply.</string>
+  <string name="choice_cold_whale">Whale</string>
+  <string name="choice_cold_alligator">Alligator</string>
+  <string name="choice_cold_giraffe">Giraffe</string>
+  <string name="choice_cold_turtle">Turtle</string>
+
+  <string name="question_mammals">Which of these are mammals?</string>
+  <string name="choice_mammals_moth">Moth</string>
+  <string name="choice_mammals_dolphin">Dolphin</string>
+  <string name="choice_mammals_bat">Bat</string>
+  <string name="choice_mammals_hawk">Hawk</string>
+  <string name="choice_mammals_human">You. Me? Yes, you.</string>
+
+  <string name="question_birds">What uniquely distinguishes birds from other animals?</string>
+  <string name="choice_birds_feathers">Has feathers</string>
+  <string name="choice_birds_eggs">Lays eggs</string>
+  <string name="choice_birds_fly">Can fly</string>
+  <string name="choice_birds_beak">Has a beak or bill</string>
+
+  <string name="question_who">This dude likes asking the same question over and over again. I mean, c\'mon! :-D</string>
+  <string name="choice_who_bat">Bat</string>
+  <string name="choice_who_baboon">Baboon</string>
+  <string name="choice_who_owl">Owl</string>
+  <string name="choice_who_cicada">Cicada</string>
+
+  <string name="question_lobster">Please enter the number of legs that a lobster has. You can enter an integer or spell out the number.</string>
+  <string name="choice_lobster_ten">ten</string>
+  <string name="choice_lobster_10">10</string>
+
+  <string name="question_mantis">What animal is this?</string>
+  <string name="choice_mantis_scorpion">Scorpion</string>
+  <string name="choice_mantis_creepah">Dat der be a CREEPAH!</string>
+  <string name="choice_mantis_mantis">Praying mantis</string>
+  <string name="choice_mantis_hopper">Hoppergrass</string>
+
+  <string name="question_eggs">Which types of animal(s) lay eggs?</string>
+  <string name="choice_eggs_birds">Birds</string>
+  <string name="choice_eggs_reptiles">Reptiles</string>
+  <string name="choice_eggs_insects">Insects</string>
+  <string name="choice_eggs_all">All of the options</string>
+
+  <string name="question_tarzan">Which one of these guys thinks he\'s Tarzan?</string>
+  <string name="choice_tarzan_monkey">Spider monkey</string>
+  <string name="choice_tarzan_bluejay">Bluejay</string>
+  <string name="choice_tarzan_goat">Goat</string>
+  <string name="choice_tarzan_frog">Frog</string>
+
+  <string name="question_ohmy">Lions, and tigers, and ____, oh my!</string>
+  <string name="choice_ohmy_rats">rats</string>
+  <string name="choice_ohmy_bears">bears</string>
+  <string name="choice_ohmy_elephants">elephants</string>
+  <string name="choice_ohmy_clowns">clowns</string>
+
+  <string name="question_cheetah">A cheetah can reach speeds up to 100 mph.</string>
+  <string name="choice_cheetah_true">True</string>
+  <string name="choice_cheetah_false">False</string>
+  <string name="choice_cheetah_good">Only on a good day</string>
+
+  <string name="question_sonic">Type of animal that Sonic is.</string>
+  <string name="choice_sonic_hedgehog">Hedgehog</string>
+  <string name="choice_sonic_echidna">Echidna</string>
+  <string name="choice_sonic_squirrel">Squirrel</string>
+  <string name="choice_sonic_fox">Fox</string>
+  <string name="choice_sonic_bat">Bat</string>
+  <string name="choice_sonic_robot">Robot</string>
+
+  <string name="question_scorpion">What animal is this?</string>
+  <string name="choice_scorpion_scorpion">Scorpion</string>
+  <string name="choice_scorpion_spider">Spider</string>
+  <string name="choice_scorpion_crab">Crab</string>
+  <string name="choice_scorpion_lobster">Lobster</string>
+  <string name="choice_scorpion_creepah">Dat der be a creepah!</string>
+
+  <string name="question_koala">What are these called?</string>
+  <string name="choice_koala_koalas">Koalas</string>
+  <string name="choice_koala_opposums">Opposums</string>
+  <string name="choice_koala_kangaroos">Kangaroos</string>
+
+  <string name="question_marsupials">Identify the marsupials. Check all that apply.</string>
+  <string name="choice_marsupials_koala">Koala</string>
+  <string name="choice_marsupials_kangaroo">Kangaroo</string>
+  <string name="choice_marsupials_opposum">Opposum</string>
+  <string name="choice_marsupials_raccoon">Raccoon</string>
+  <string name="choice_marsupials_squirrel">Squirrel</string>
+
+  <string name="question_insect">Please enter the number of legs that an insect has. You can enter an integer or spell out the number.</string>
+  <string name="choice_insect_six">six</string>
+  <string name="choice_insect_6">6</string>
+
+  <string name="question_baby_kangaroo">What is a baby kangaroo called?</string>
+  <string name="choice_baby_kangaroo_joey">joey</string>
+
+  <string name="question_squid">What animal is this?</string>
+  <string name="choice_squid_squid">Squid</string>
+  <string name="choice_squid_octopus">Octopus</string>
+  <string name="choice_squid_jellyfish">Jellyfish</string>
+  <string name="choice_squid_spider">Spider</string>
+  <string name="choice_squid_snail">Snail</string>
+
+  <string name="question_snail">This dude got tired of being one of the slowest dudes.</string>
+  <string name="choice_snail_snail">Snail</string>
+  <string name="choice_snail_tadpole">Tadpole</string>
+  <string name="choice_snail_slug">Slug</string>
+  <string name="choice_snail_worm">Worm</string>
+
+  <string name="question_cagematch">This animal is commonly the referee for a cage match.</string>
+  <string name="choice_cagematch_zebra">Zebra</string>
+  <string name="choice_cagematch_leoapard">Leopard</string>
+  <string name="choice_cagematch_gorilla">Gorilla</string>
+
+  <string name="question_spots">Identify the animal with spots.</string>
+  <string name="choice_spots_leopard">Leopard</string>
+  <string name="choice_spots_elephant">Elephant</string>
+  <string name="choice_spots_zebra">Zebra</string>
+  <string name="choice_spots_ant">Ant</string>
+  <string name="choice_spots_pigeon">Pigeon</string>
+
+  <string name="question_skin">Which animal sheds its skin?</string>
+  <string name="choice_skin_snake">Snake</string>
+  <string name="choice_skin_lion">Lion</string>
+  <string name="choice_skin_monkey">Monkey</string>
+  <string name="choice_skin_bird">Bird</string>
+
+  <string name="question_shell">Pick out the animal that does NOT have a shell.</string>
+  <string name="choice_shell_snail">Snail</string>
+  <string name="choice_shell_turtle">Turtle</string>
+  <string name="choice_shell_slug">Slug</string>
+  <string name="choice_shell_oyster">Oyster</string>
+
+  <string name="question_king">King of the jungle!</string>
+  <string name="choice_king_lion">lion</string>
+
+  <string name="question_crocogator">What is a crocogator?</string>
+  <string name="choice_crocogator_mutant_alligator">A mutant alligator</string>
+  <string name="choice_crocogator_mutant_crocodile">A mutant corcodile</string>
+  <string name="choice_crocogator_combination">A cross breed of alligator and a crocodile</string>
+  <string name="choice_crocogator_no_such_thing">There\'s no such animal. Pfft. Crocogators.</string>
+
+  <string name="question_liger">If these two animals mate, they produce a liger.</string>
+  <string name="choice_liger_male_lion">Male lion</string>
+  <string name="choice_liger_male_tiger">Male tiger</string>
+  <string name="choice_liger_female_lion">Female lion</string>
+  <string name="choice_liger_female_tiger">Female tiger</string>
+  <string name="choice_liger_myth">The liger is a \"product\" of Photoshop!</string>
+
+  <string name="question_tigon">A tigon is the cross hybrid of these two animals:</string>
+  <string name="choice_tigon_male_lion">Male lion</string>
+  <string name="choice_tigon_male_tiger">Male tiger</string>
+  <string name="choice_tigon_female_lion">Female lion</string>
+  <string name="choice_tigon_female_tiger">Female tiger</string>
+  <string name="choice_tigon_myth">The tigon is a product ONLY of science fiction. Stop makin\' up animals!</string>
+
+  <string name="question_geep">The cross-breed of a goat and sheep is called:</string>
+  <string name="choice_geep_geep">Geep</string>
+  <string name="choice_geep_lamb">Lamb</string>
+  <string name="choice_geep_donkey">Donkey</string>
+  <string name="choice_geep_mule">Mule</string>
+
+  <string name="question_beefalo">Select the two animals that can cross-breed to produce a beefalo.</string>
+  <string name="choice_beefalo_buffalo">Buffalo</string>
+  <string name="choice_beefalo_cow">Cow</string>
+  <string name="choice_beefalo_horse">Horse</string>
+  <string name="choice_beefalo_zebra">Zebra</string>
+
+  <string name="question_zonkey">This animal is the product of a zebra and a donkey.</string>
+  <string name="choice_zonkey_zonkey">zonkey</string>
+  <string name="choice_zonkey_zebroid">zebroid</string>
+
+</resources>

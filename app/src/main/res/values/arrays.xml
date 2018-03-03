@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <array name="questions">
+
+    <!-- =========================== -->
+    <!-- 1. question arthropod -->
+    <!-- =========================== -->
+    <!-- id marker of question text. used as a delimiter between questions-->
+    <!-- must be first pair of tags of each question -->
+    <!-- required tags -->
+    <item>questionId</item>
+    <item>arthropod</item>
+
+    <!-- string id of question text. -->
+    <!-- required tags -->
+    <item>questionTextStringId</item>
+    <item>@string/question_arthropod</item>
+    
+    <!-- question type. required -->
+    <!-- can be "radio", "check", "edit" -->
+    <!-- required tags -->
+    <item>questionType</item>
+    <item>radio</item>
+    
+    <!-- resource ID of an image if one is shown with the question -->
+    <!-- optional tags -->
+    <!--<item>questionImageId</item>
+    <item></item>-->
+    
+    <!-- number of incorrect choices -->
+    <!-- first tag: number of incorrect choices -->
+    <!-- second tag: an <item> tag that specifies the resource String ID of the choice text -->
+    <!-- the number of resource ID <item> tags must match the value specified in the first tag -->
+    <!-- only required for question types "radio" and "check"; not used for other question types -->
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_arthropod_eagle</item>
+    <item>@string/choice_arthropod_monkey</item>
+    <item>@string/choice_arthropod_amphibian</item>
+    
+    <!-- number of correct choices -->
+    <!-- required tags -->
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_arthropod_spider</item>
+
+    <!-- =========================== -->
+    <!-- 2. question cold -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>cold</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_cold</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_cold_whale</item>
+    <item>@string/choice_cold_giraffe</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_cold_alligator</item>
+    <item>@string/choice_cold_turtle</item>
+
+    <!-- =========================== -->
+    <!-- 3. question mammals -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>mammals</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_mammals</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_mammals_hawk</item>
+    <item>@string/choice_mammals_moth</item>
+
+    <item>correctChoices</item>
+    <item>3</item>
+    <item>@string/choice_mammals_bat</item>
+    <item>@string/choice_mammals_dolphin</item>
+    <item>@string/choice_mammals_human</item>
+
+    <!-- =========================== -->
+    <!-- 4. question birds -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>birds</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_birds</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_birds_beak</item>
+    <item>@string/choice_birds_eggs</item>
+    <item>@string/choice_birds_fly</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_birds_feathers</item>
+
+    <!-- =========================== -->
+    <!-- 5. question who -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>who</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_who</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_who_baboon</item>
+    <item>@string/choice_who_bat</item>
+    <item>@string/choice_who_cicada</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_who_owl</item>
+
+    <!-- =========================== -->
+    <!-- 6. question lobster -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>lobster</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_lobster</item>
+
+    <item>questionType</item>
+    <item>edit</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_lobster_10</item>
+    <item>@string/choice_lobster_ten</item>
+
+    <!-- =========================== -->
+    <!-- 7. question mantis -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>mantis</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_mantis</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>questionImageId</item>
+    <item>praying_mantis</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_mantis_mantis</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_mantis_creepah</item>
+    <item>@string/choice_mantis_hopper</item>
+    <item>@string/choice_mantis_scorpion</item>
+
+    <!-- =========================== -->
+    <!-- 8. question eggs -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>eggs</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_eggs</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_eggs_all</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_eggs_birds</item>
+    <item>@string/choice_eggs_insects</item>
+    <item>@string/choice_eggs_reptiles</item>
+
+    <!-- =========================== -->
+    <!-- 9. question tarzan -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>tarzan</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_tarzan</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_tarzan_monkey</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_tarzan_bluejay</item>
+    <item>@string/choice_tarzan_frog</item>
+    <item>@string/choice_tarzan_goat</item>
+
+    <!-- =========================== -->
+    <!-- 10. question ohmy -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>ohmy</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_ohmy</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_ohmy_bears</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_ohmy_clowns</item>
+    <item>@string/choice_ohmy_elephants</item>
+    <item>@string/choice_ohmy_rats</item>
+
+    <!-- =========================== -->
+    <!-- 11. question cheetah -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>cheetah</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_cheetah</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_cheetah_false</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_cheetah_good</item>
+    <item>@string/choice_cheetah_true</item>
+
+    <!-- =========================== -->
+    <!-- 12. question sonic -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>sonic</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_sonic</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_sonic_hedgehog</item>
+
+    <item>incorrectChoices</item>
+    <item>5</item>
+    <item>@string/choice_sonic_echidna</item>
+    <item>@string/choice_sonic_squirrel</item>
+    <item>@string/choice_sonic_fox</item>
+    <item>@string/choice_sonic_bat</item>
+    <item>@string/choice_sonic_robot</item>
+
+    <!-- =========================== -->
+    <!-- 13. question scorpion -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>scorpion</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_scorpion</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>questionImageId</item>
+    <item>scorpion</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_scorpion_scorpion</item>
+
+    <item>incorrectChoices</item>
+    <item>4</item>
+    <item>@string/choice_scorpion_spider</item>
+    <item>@string/choice_scorpion_crab</item>
+    <item>@string/choice_scorpion_lobster</item>
+    <item>@string/choice_scorpion_creepah</item>
+
+    <!-- =========================== -->
+    <!-- 14. question koala -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>koala</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_koala</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>questionImageId</item>
+    <item>koala</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_koala_koalas</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_koala_opposums</item>
+    <item>@string/choice_koala_kangaroos</item>
+
+    <!-- =========================== -->
+    <!-- 15. question marsupials -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>marsupials</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_marsupials</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>correctChoices</item>
+    <item>3</item>
+    <item>@string/choice_marsupials_kangaroo</item>
+    <item>@string/choice_marsupials_koala</item>
+    <item>@string/choice_marsupials_opposum</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_marsupials_raccoon</item>
+    <item>@string/choice_marsupials_squirrel</item>
+
+    <!-- =========================== -->
+    <!-- 16. question insect -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>insect</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_insect</item>
+
+    <item>questionType</item>
+    <item>edit</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_insect_6</item>
+    <item>@string/choice_insect_six</item>
+
+    <!-- =========================== -->
+    <!-- 17. question baby_kangaroo -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>baby_kangaroo</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_baby_kangaroo</item>
+
+    <item>questionType</item>
+    <item>edit</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_baby_kangaroo_joey</item>
+
+    <!-- =========================== -->
+    <!-- 18. question squid -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>squid</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_squid</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>questionImageId</item>
+    <item>squid</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_squid_squid</item>
+
+    <item>incorrectChoices</item>
+    <item>4</item>
+    <item>@string/choice_squid_jellyfish</item>
+    <item>@string/choice_squid_octopus</item>
+    <item>@string/choice_squid_snail</item>
+    <item>@string/choice_squid_spider</item>
+
+    <!-- =========================== -->
+    <!-- 19. question snail -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>snail</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_snail</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>questionImageId</item>
+    <item>snail</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_snail_snail</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_snail_slug</item>
+    <item>@string/choice_snail_tadpole</item>
+    <item>@string/choice_snail_worm</item>
+
+    <!-- =========================== -->
+    <!-- 20. question cagematch -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>cagematch</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_cagematch</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_cagematch_zebra</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_cagematch_gorilla</item>
+    <item>@string/choice_cagematch_leoapard</item>
+
+    <!-- =========================== -->
+    <!-- 21. question spots -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>spots</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_spots</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_spots_leopard</item>
+
+    <item>incorrectChoices</item>
+    <item>4</item>
+    <item>@string/choice_spots_ant</item>
+    <item>@string/choice_spots_elephant</item>
+    <item>@string/choice_spots_pigeon</item>
+    <item>@string/choice_spots_zebra</item>
+
+    <!-- =========================== -->
+    <!-- 22. question skin-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>skin</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_skin</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_skin_snake</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_skin_monkey</item>
+    <item>@string/choice_skin_lion</item>
+    <item>@string/choice_skin_bird</item>
+
+    <!-- =========================== -->
+    <!-- 23. question shell-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>shell</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_shell</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_shell_slug</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_shell_oyster</item>
+    <item>@string/choice_shell_snail</item>
+    <item>@string/choice_shell_turtle</item>
+
+    <!-- =========================== -->
+    <!-- 24. question king -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>king</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_king</item>
+
+    <item>questionType</item>
+    <item>edit</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_king_lion</item>
+
+    <!-- =========================== -->
+    <!-- 25. question crocogator-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>crocogator</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_crocogator</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_crocogator_no_such_thing</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_crocogator_combination</item>
+    <item>@string/choice_crocogator_mutant_alligator</item>
+    <item>@string/choice_crocogator_mutant_crocodile</item>
+
+    <!-- =========================== -->
+    <!-- 26. question liger-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>liger</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_liger</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_liger_male_lion</item>
+    <item>@string/choice_liger_female_tiger</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_liger_female_lion</item>
+    <item>@string/choice_liger_male_tiger</item>
+    <item>@string/choice_liger_myth</item>
+
+    <!-- =========================== -->
+    <!-- 27. question tigon -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>tigon</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_tigon</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_tigon_female_lion</item>
+    <item>@string/choice_tigon_male_tiger</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_tigon_male_lion</item>
+    <item>@string/choice_tigon_female_tiger</item>
+    <item>@string/choice_tigon_myth</item>
+
+    <!-- =========================== -->
+    <!-- 28. question zonkey -->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>zonkey</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_zonkey</item>
+
+    <item>questionType</item>
+    <item>edit</item>
+
+    <item>questionImageId</item>
+    <item>zonkey</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_zonkey_zonkey</item>
+    <item>@string/choice_zonkey_zebroid</item>
+
+    <!-- =========================== -->
+    <!-- 29. question geep-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>geep</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_geep</item>
+
+    <item>questionType</item>
+    <item>radio</item>
+
+    <item>correctChoices</item>
+    <item>1</item>
+    <item>@string/choice_geep_geep</item>
+
+    <item>incorrectChoices</item>
+    <item>3</item>
+    <item>@string/choice_geep_donkey</item>
+    <item>@string/choice_geep_lamb</item>
+    <item>@string/choice_geep_mule</item>
+
+    <!-- =========================== -->
+    <!-- 30. question beefalo-->
+    <!-- =========================== -->
+    <item>questionId</item>
+    <item>beefalo</item>
+
+    <item>questionTextStringId</item>
+    <item>@string/question_beefalo</item>
+
+    <item>questionType</item>
+    <item>check</item>
+
+    <item>correctChoices</item>
+    <item>2</item>
+    <item>@string/choice_beefalo_buffalo</item>
+    <item>@string/choice_beefalo_cow</item>
+
+    <item>incorrectChoices</item>
+    <item>2</item>
+    <item>@string/choice_beefalo_horse</item>
+    <item>@string/choice_beefalo_zebra</item>
+  </array>
+</resources>
