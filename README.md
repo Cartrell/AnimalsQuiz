@@ -6,11 +6,12 @@ There the quiz randomly selects between 5 and 10 questions from a pool of 30, so
 ## Quiz Questions
 Questions use the following formats:
 
- 1. Radio buttons: The correct answer is only one of the radio buttons.
- 2. Check boxes: The correct answers are two or more check boxes.
- 3. Edit text: The correct answer is a specific text. Some answers may have more then one acceptable text entry. For example, if the correct answer represents a number, say seven, both "seven" and "7" are acceptable.
+ 1. Question text: This is the question or statement that is presented.
+ 2. Radio buttons: The correct answer is only one of the radio buttons.
+ 3. Check boxes: The correct answers are two or more check boxes.
+ 4. Edit text: The correct answer is a specific text. Some answers may have more then one acceptable text entry. For example, if the correct answer represents a number, say seven, both "seven" and "7" are acceptable.
 
-Some questions also use an image, such as a picture to identify.
+Questions may also use an image, such as a picture to accompany the question text.
 
 ## How to Edit Questions
 You can add new questions, or remove or edit existing ones. Most of this can be done in these two files:
