@@ -1,17 +1,24 @@
 package com.example.android.animalsquiz;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.animalsquiz.questionbuilder.CheckQuestionBuilder;
 import com.example.android.animalsquiz.questionbuilder.EditQuestionBuilder;
+import com.example.android.animalsquiz.questionbuilder.QuestionBuilder;
 import com.example.android.animalsquiz.questionbuilder.RadioQuestionBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 class QuizBuilder {
+  //===============================================================
+  // members
+  //===============================================================
+  private QuestionBuilder[] m_questionBuilders;
+
   //===============================================================
   // package
   //===============================================================
@@ -20,22 +27,30 @@ class QuizBuilder {
   // build
   //---------------------------------------------------------------
   void build(ViewGroup questionsGroup, ArrayList<QuestionData> questionsData,
-             String questionNumberFormat) {
+             String questionNumberFormat, IQuizChoiceCallbacks callbacks) {
 
-    /*
-    Make sure that:
-    1). MIN_NUM_QUESTIONS is not larger than MAX_NUM_QUESTIONS.
-    2). MAX_NUM_QUESTIONS does not exceed the total number of questions available in the resources.
-    3). Neither MIN nor MAX is less than 1.
-     */
-    final int MIN_NUM_QUESTIONS = 5;
-    final int MAX_NUM_QUESTIONS = 10;
-    int numQuestions = MIN_NUM_QUESTIONS +
-            (int)(Math.random() * (MAX_NUM_QUESTIONS - MIN_NUM_QUESTIONS + 1));
-
-    ArrayList<QuestionData>questionsUsedData = pickRandomQuestions(questionsData, numQuestions);
-    buildQuestionViews(questionsGroup, questionsUsedData);
+    buildQuestionViews(questionsGroup, questionsData, callbacks);
     numberQuestions(questionsGroup, questionNumberFormat);
+  }
+
+  //---------------------------------------------------------------
+  // setUserChoices
+  //---------------------------------------------------------------
+  void setUserChoices(UserChoicesData userChoicesData) {
+    if (userChoicesData == null) {
+      return; //sanity check
+    }
+
+    HashMap<String, Object> hashMap = userChoicesData.getData();
+    for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+      String questionId = entry.getKey();
+      Object userChoice = entry.getValue();
+      QuestionBuilder questionBuilder = getQuestionBuilderById(questionId);
+
+      if (questionBuilder != null) {
+        questionBuilder.setUserChoice(userChoice);
+      }
+    }
   }
 
   //===============================================================
@@ -45,10 +60,9 @@ class QuizBuilder {
   //---------------------------------------------------------------
   // buildQuestionViews
   //---------------------------------------------------------------
-  private void buildQuestionViews(ViewGroup questionsGroup, ArrayList<QuestionData> questionsData) {
-    RadioQuestionBuilder radioQuestionBuilder = new RadioQuestionBuilder();
-    CheckQuestionBuilder checkQuestionBuilder = new CheckQuestionBuilder();
-    EditQuestionBuilder editQuestionBuilder = new EditQuestionBuilder();
+  private void buildQuestionViews(ViewGroup questionsGroup, ArrayList<QuestionData> questionsData,
+                                  IQuizChoiceCallbacks callbacks) {
+    m_questionBuilders = new QuestionBuilder[questionsData.size()];
 
     Context context = questionsGroup.getContext();
     int lastQuestionIndex = questionsData.size() - 1;
@@ -59,15 +73,21 @@ class QuizBuilder {
       boolean isLastQuestion = questionIndex == lastQuestionIndex;
       switch (questionData.getQuestionType()) {
         case QuestionData.CHOICE_TYPE_RADIO:
-          questionView = radioQuestionBuilder.build(context, questionData, isLastQuestion);
+          RadioQuestionBuilder radioQuestionBuilder = new RadioQuestionBuilder();
+          questionView = radioQuestionBuilder.build(context, questionData, isLastQuestion, callbacks);
+          m_questionBuilders[questionIndex] = radioQuestionBuilder;
           break;
 
         case QuestionData.CHOICE_TYPE_CHECK:
-          questionView = checkQuestionBuilder.build(context, questionData, isLastQuestion);
+          CheckQuestionBuilder checkQuestionBuilder = new CheckQuestionBuilder();
+          questionView = checkQuestionBuilder.build(context, questionData, isLastQuestion, callbacks);
+          m_questionBuilders[questionIndex] = checkQuestionBuilder;
           break;
 
         case QuestionData.CHOICE_TYPE_EDIT:
-          questionView = editQuestionBuilder.build(context, questionData, isLastQuestion);
+          EditQuestionBuilder editQuestionBuilder = new EditQuestionBuilder();
+          questionView = editQuestionBuilder.build(context, questionData, isLastQuestion, callbacks);
+          m_questionBuilders[questionIndex] = editQuestionBuilder;
           break;
 
         default:
@@ -79,6 +99,24 @@ class QuizBuilder {
         questionsGroup.addView(questionView);
       }
     }
+  }
+
+  //---------------------------------------------------------------
+  // getQuestionBuilderById
+  //---------------------------------------------------------------
+  private QuestionBuilder getQuestionBuilderById(String questionId) {
+    for (QuestionBuilder questionBuilder : m_questionBuilders) {
+      String questionBuilderQId = questionBuilder.getQuestionId();
+      if (questionBuilderQId == null) {
+        continue;
+      }
+
+      if (questionBuilderQId.equals(questionId)) {
+        return(questionBuilder);
+      }
+    }
+
+    return(null);
   }
 
   //---------------------------------------------------------------
@@ -98,57 +136,5 @@ class QuizBuilder {
       String questionText = questionNumber + questionTextView.getText().toString();
       questionTextView.setText(questionText);
     }
-  }
-
-  //---------------------------------------------------------------
-  // pickRandomQuestions
-  //---------------------------------------------------------------
-  private ArrayList<QuestionData> pickRandomQuestions(ArrayList<QuestionData> sourceData,
-                                                      int numQuestions) {
-    //create a copy of the source data array
-    ArrayList<QuestionData> randomList = new ArrayList<>(sourceData);
-
-    //randomize the order of the elements in the random list
-    int length = randomList.size();
-    for (int index = 0; index < length; index++) {
-      //pick a random index from the array
-      int randomIndex = (int)(Math.random() * length);
-
-      //swap the value at current index with the random index
-      swapElementsAt(randomList, index, randomIndex);
-    }
-
-    //build the target array list and copy the first "numQuestions" number of questions from
-    // the random list to this target list
-    ArrayList<QuestionData> targetList = new ArrayList<>(numQuestions);
-    for (int index = 0; index < numQuestions; index++) {
-      QuestionData selectedQuestion = randomList.get(index);
-      Log.v("pickRandomQuestions", "building question: " + selectedQuestion.getId());
-      targetList.add(index, selectedQuestion);
-    }
-
-    return(targetList);
-  }
-
-  //---------------------------------------------------------------
-  // swapElementsAt
-  //---------------------------------------------------------------
-  /**
-   * Swaps the data of two elements within an array list. The array list itself is
-   * modified so there is no need to return anything.
-   * @param arrayList the array list whose elements will be swapped
-   * @param index1 the index of the first element to swap
-   * @param index2 the index of the second element to swap
-   */
-  private void swapElementsAt(ArrayList<QuestionData> arrayList, int index1, int index2) {
-    //save the element at index1 because we're about to replace it with what's in index2
-    QuestionData temp = arrayList.get(index1);
-
-    //Place the element that is located at index2 into index1. This will overwrite the previous
-    // element that was at index1, but remember: we saved it in the temp variable first.
-    arrayList.set(index1, arrayList.get(index2));
-
-    //Finally, set the element at the index2 location.
-    arrayList.set(index2, temp);
   }
 }

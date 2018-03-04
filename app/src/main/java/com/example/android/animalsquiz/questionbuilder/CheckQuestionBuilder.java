@@ -5,17 +5,23 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
-import com.example.android.animalsquiz.ChoicesMixer;
+import com.example.android.animalsquiz.IQuizChoiceCallbacks;
 import com.example.android.animalsquiz.QuestionData;
 import com.example.android.animalsquiz.R;
 
-public class CheckQuestionBuilder extends QuestionBuilder {
+public class CheckQuestionBuilder extends QuestionBuilder implements CompoundButton.OnCheckedChangeListener {
   //===============================================================
   // static
   //===============================================================
   private static int sm_nextButtonId = 2000;
+
+  //===============================================================
+  // members
+  //===============================================================
+  private LinearLayout m_checkGroup;
 
   //===============================================================
   // public
@@ -25,7 +31,10 @@ public class CheckQuestionBuilder extends QuestionBuilder {
   // build
   //---------------------------------------------------------------
   @Override
-  public ViewGroup build(Context context, QuestionData questionData, boolean isLastQuestion) {
+  public ViewGroup build(Context context, QuestionData questionData, boolean isLastQuestion,
+                         IQuizChoiceCallbacks callbacks) {
+    super.build(context, questionData, isLastQuestion, callbacks);
+
     //Create the question linear layout. This is a container for all the view objects for
     // this question.
     LinearLayout linearLayout = new LinearLayout(context);
@@ -48,6 +57,44 @@ public class CheckQuestionBuilder extends QuestionBuilder {
     return(linearLayout);
   }
 
+  //---------------------------------------------------------------
+  // onCheckedChanged
+  //---------------------------------------------------------------
+  @Override
+  public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+    if (m_callbacks == null) {
+      return; //sanity check
+    }
+
+    int numChoices = m_checkGroup.getChildCount();
+    boolean[] areBoxesChecked = new boolean[numChoices];
+
+    for (int index = 0; index < numChoices; index++) {
+      CheckBox checkBox = (CheckBox)m_checkGroup.getChildAt(index);
+      areBoxesChecked[index] = checkBox.isChecked();
+    }
+
+    m_callbacks.quizChoiceChanged(getQuestionId(), areBoxesChecked);
+  }
+
+  //---------------------------------------------------------------
+  // setUserChoice
+  //---------------------------------------------------------------
+  @Override
+  public void setUserChoice(Object userChoice) {
+    if (userChoice == null) {
+      return; //sanity check
+    }
+
+    boolean[] areBoxesChecked = (boolean[])userChoice;
+    int numChoices = m_checkGroup.getChildCount();
+
+    for (int index = 0; index < numChoices; index++) {
+      CheckBox checkBox = (CheckBox)m_checkGroup.getChildAt(index);
+      checkBox.setChecked(areBoxesChecked[index]);
+    }
+  }
+
   //===============================================================
   // private
   //===============================================================
@@ -55,16 +102,16 @@ public class CheckQuestionBuilder extends QuestionBuilder {
   //---------------------------------------------------------------
   // createCheckBox
   //---------------------------------------------------------------
-  private void createCheckBox(LinearLayout linearLayout, String label, boolean isCorrect) {
+  private void createCheckBox(String label, boolean isCorrect) {
     //to set style programmatically, with api < 21, need to set style this way. see:
     //https://stackoverflow.com/questions/3142067/android-set-style-in-code
 
     //how to use layout inflation:
     //https://possiblemobile.com/2013/05/layout-inflation-as-intended/
-    Context context = linearLayout.getContext();
+    Context context = m_checkGroup.getContext();
     Activity activity = (Activity)context;
     CheckBox button = (CheckBox)activity.getLayoutInflater().inflate(
-            R.layout.checkbox_template, linearLayout, false);
+            R.layout.checkbox_template, m_checkGroup, false);
     button.setId(++sm_nextButtonId);
 
     setButtonFont(button, context.getResources().getString(R.string.fontfile_designosaur_regular),
@@ -72,15 +119,16 @@ public class CheckQuestionBuilder extends QuestionBuilder {
 
     button.setText(label);
     button.setTag(isCorrect);
-    linearLayout.addView(button);
+    button.setOnCheckedChangeListener(this);
+    m_checkGroup.addView(button);
   }
 
   //---------------------------------------------------------------
   // createCheckBoxes
   //---------------------------------------------------------------
-  private void createCheckBoxes(LinearLayout linearLayout, boolean isCorrect, String[] buttonLabels) {
+  private void createCheckBoxes(boolean isCorrect, String[] buttonLabels) {
     for (String buttonLabel : buttonLabels) {
-      createCheckBox(linearLayout, buttonLabel, isCorrect);
+      createCheckBox(buttonLabel, isCorrect);
     }
   }
 
@@ -88,25 +136,25 @@ public class CheckQuestionBuilder extends QuestionBuilder {
   // createCheckGroup
   //---------------------------------------------------------------
   private void createCheckGroup(LinearLayout linearLayout, QuestionData questionData) {
-    LinearLayout checkGroup = new LinearLayout(linearLayout.getContext());
-    checkGroup.setTag(CHOICES_GROUP_TAG);
-    checkGroup.setOrientation(LinearLayout.VERTICAL);
+    m_checkGroup = new LinearLayout(linearLayout.getContext());
+    m_checkGroup.setTag(CHOICES_GROUP_TAG);
+    m_checkGroup.setOrientation(LinearLayout.VERTICAL);
 
     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT);
     params.gravity = Gravity.CENTER_HORIZONTAL;
-    checkGroup.setLayoutParams(params);
+    m_checkGroup.setLayoutParams(params);
 
     //create the check boxes that represent the correct and incorrect choices
-    createCheckBoxes(checkGroup, true, questionData.getCorrectChoiceStringIds());
-    createCheckBoxes(checkGroup, false, questionData.getIncorrectChoiceStringIds());
+    createCheckBoxes(true, questionData.getCorrectChoiceStringIds());
+    createCheckBoxes(false, questionData.getIncorrectChoiceStringIds());
 
     //mix up the order of the radio buttons
-    ChoicesMixer choicesMixer = new ChoicesMixer();
-    choicesMixer.mix(checkGroup);
+    /*ChoicesMixer choicesMixer = new ChoicesMixer();
+    choicesMixer.mix(m_checkGroup);*/
 
     //finally add the check box group to the linear layout
-    linearLayout.addView(checkGroup);
+    linearLayout.addView(m_checkGroup);
   }
 }

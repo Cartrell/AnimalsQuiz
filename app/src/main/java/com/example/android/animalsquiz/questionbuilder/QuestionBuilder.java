@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.animalsquiz.FontCache;
+import com.example.android.animalsquiz.IQuizChoiceCallbacks;
 import com.example.android.animalsquiz.QuestionData;
 import com.example.android.animalsquiz.R;
 
@@ -26,6 +27,12 @@ abstract public class QuestionBuilder {
   public static final int EDIT_TEXT_TAG = 2;
 
   //===============================================================
+  // members
+  //===============================================================
+  protected IQuizChoiceCallbacks m_callbacks;
+  private String m_questionId;
+
+  //===============================================================
   // public
   //===============================================================
 
@@ -34,16 +41,36 @@ abstract public class QuestionBuilder {
   //---------------------------------------------------------------
 
   /**
-   * While the QuizBuilder is building te question view groups, it will call this method. Objects
-   * of this class must be a subclass, and they must override this method, and provide the
-   * necessary functionality and return a view group depending on the type of question.
+   * While the QuizBuilder is building the question view groups, it will call this method. Objects
+   * of this class must be a subclass, and they must override this method, call this base class
+   * first, then provide the necessary functionality and return a view group depending on the type
+   * of question.
    * @param context The context of the app.
    * @param questionData The question from which the view group is being created.
    * @param isLastQuestion This will be true if this question is the last question to be created.
    *                       This is for any special functionality that happens on the last question.
-   * @return The ViewGroup that represents the question.
+   * @param callbacks Callbacks invoked when the user changes the response to a quiz question.
+   * @return The ViewGroup that represents the question. Note that this base method will always
+   *  return null, so it's up to the overriding method to return the ViewGroup.
    */
-  abstract public ViewGroup build(Context context, QuestionData questionData, boolean isLastQuestion);
+  public ViewGroup build(Context context, QuestionData questionData, boolean isLastQuestion,
+                         IQuizChoiceCallbacks callbacks) {
+    m_callbacks = callbacks;
+    m_questionId = questionData.getId();
+    return(null);
+  }
+
+  //---------------------------------------------------------------
+  // getQuestionId
+  //---------------------------------------------------------------
+  public String getQuestionId() {
+    return(m_questionId);
+  }
+
+  //---------------------------------------------------------------
+  // setUserChoice
+  //---------------------------------------------------------------
+  abstract public void setUserChoice(Object userChoice);
 
   //===============================================================
   // package
