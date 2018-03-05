@@ -158,7 +158,7 @@
 
   <string name="question_crocogator">What is a crocogator?</string>
   <string name="choice_crocogator_mutant_alligator">A mutant alligator</string>
-  <string name="choice_crocogator_mutant_crocodile">A mutant corcodile</string>
+  <string name="choice_crocogator_mutant_crocodile">A mutant crocodile</string>
   <string name="choice_crocogator_combination">A cross breed of alligator and a crocodile</string>
   <string name="choice_crocogator_no_such_thing">There\'s no such animal. Pfft. Crocogators.</string>
 
