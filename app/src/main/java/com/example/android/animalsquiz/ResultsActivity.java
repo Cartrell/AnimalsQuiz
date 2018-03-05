@@ -4,6 +4,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +21,8 @@ public class ResultsActivity extends AppCompatActivity {
   //===============================================================
   private ActivityResultsBinding m_binding;
   private ObjectAnimator m_scoreTextAnimator;
+  private int m_numQuestions;
+  private int m_numCorrectQuestions;
 
   //===============================================================
   // public
@@ -37,6 +40,27 @@ public class ResultsActivity extends AppCompatActivity {
     intent.putExtra(MSG_REPLAY, true);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
+  }
+
+  //---------------------------------------------------------------
+  // onBtnShare
+  //---------------------------------------------------------------
+  /**
+   * Called when the play again button is pressed.
+   * @param view The view that called this method
+   */
+  public void onBtnShare(View view) {
+    Intent intent = new Intent(Intent.ACTION_SENDTO);
+    intent.setData(Uri.parse("mailto:"));
+    intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.results_share_subject));
+
+    String messageFormat = getString(R.string.results_share_message_format);
+    String message = String.format(messageFormat, m_numCorrectQuestions, m_numQuestions);
+    intent.putExtra(Intent.EXTRA_TEXT, message);
+
+    if (intent.resolveActivity(getPackageManager()) != null) {
+      startActivity(intent);
+    }
   }
 
   //===============================================================
@@ -95,13 +119,13 @@ public class ResultsActivity extends AppCompatActivity {
     Intent intent = getIntent();
 
     //get the values sent from the main activity via the intent
-    int numQuestions = intent.getIntExtra(MainActivity.MSG_NUM_QUESTIONS, 0);
-    int numCorrectQuestions = intent.getIntExtra(MainActivity.MSG_NUM_CORRECT_QUESTIONS, 0);
+    m_numQuestions = intent.getIntExtra(MainActivity.MSG_NUM_QUESTIONS, 0);
+    m_numCorrectQuestions = intent.getIntExtra(MainActivity.MSG_NUM_CORRECT_QUESTIONS, 0);
 
-    setScoreText(numQuestions, numCorrectQuestions);
-    setFeedbackText(numQuestions, numCorrectQuestions);
+    setScoreText(m_numQuestions, m_numCorrectQuestions);
+    setFeedbackText(m_numQuestions, m_numCorrectQuestions);
 
-    if (numCorrectQuestions == numQuestions) {
+    if (m_numCorrectQuestions == m_numQuestions) {
       createScoreTextAnimator();
     }
 

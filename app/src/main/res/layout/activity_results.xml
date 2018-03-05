@@ -57,14 +57,42 @@
         android:maxLines="2"
         style="@style/ResultsIncorrectLabelText" />
 
-      <Button
-        android:id="@+id/btn_results_play_again"
+      <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:onClick="onBtnPlayAgain"
-        android:text="@string/play_again"
-        style="@style/ControlButton"/>
+        android:text="To re-try the same quiz, press the Back button on your device."
+        android:textAlignment="center"
+        android:maxLines="2"
+        style="@style/ResultsLabelText" />
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+          android:id="@+id/btn_results_new_quiz"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:onClick="onBtnPlayAgain"
+          android:text="@string/new_quiz"
+          style="@style/ControlButton"
+          android:layout_margin="8dp"/>
+
+        <Button
+          android:id="@+id/btn_results_share"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:onClick="onBtnShare"
+          android:text="@string/share"
+          style="@style/ControlButton"
+          android:layout_margin="8dp"/>
+      </LinearLayout>
     </LinearLayout>
 
   </RelativeLayout>

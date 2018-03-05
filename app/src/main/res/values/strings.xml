@@ -5,11 +5,14 @@
   <string name="edit_text_hint">Enter your response here.</string>
   <string name="questionNumberFormat">%1$d).\u0020</string>
   <string name="grading_message">Score: %1$d out of %2$d</string>
+  <string name="results_share_subject">Animals Quiz: Results</string>
+  <string name="results_share_message_format">I scored %1$d out of %2$d on Cartrell\'s Animals Quiz.</string>
 
   <!-- button labels -->
   <string name="grading">Grading</string>
   <string name="submit">Submit</string>
-  <string name="play_again">Play Again</string>
+  <string name="new_quiz">New Quiz</string>
+  <string name="share">Share</string>
 
   <!-- font files -->
   <string name="fontfile_designosaur_regular">designosaur_regular.otf</string>
